@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Profile - Recipe Finder</title>
+  <link rel="stylesheet" href="profile.css"> <!-- Link to the new CSS file -->
+</head>
+<body onload="initializeProfile()">
+  <h1>Your Profile</h1>
+  <p id="profileInfo">Loading your profile...</p>
+  <button class="logout-button" onclick="logout()">Log Out</button>
+  <button class="back-button" onclick="goBack()">Back to Home</button>
+
+  <div id="likesContainer">
+    <h2>Your Liked Recipes</h2>
+    <ul id="likesList">
+      <!-- Liked recipes will be dynamically loaded here -->
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function goBack() {
+      window.location.href = "index.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("currentUser");
+      alert("You have been logged out.");
+      window.location.href = "login.html";
+    }
+
+    function initializeProfile() {
+      const currentUser = localStorage.getItem("currentUser");
+      if (!currentUser) {
+        alert("You must be logged in to view your profile.");
+        window.location.href = "login.html";
+        return;
+      }
+
+      document.getElementById("profileInfo").textContent = `Welcome, ${currentUser}!`;
+
+      // Retrieve likes from localStorage
+      const likes = JSON.parse(localStorage.getItem("likes")) || [];
+      const likesList = document.getElementById("likesList");
+
+      if (likes.length === 0) {
+        likesList.innerHTML = "<li>You have no liked recipes.</li>";
+      } else {
+        likesList.innerHTML = ""; // Clear existing content
+        likes.forEach(recipeName => {
+          const listItem = document.createElement("li");
+          listItem.textContent = recipeName;
+          likesList.appendChild(listItem);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
+

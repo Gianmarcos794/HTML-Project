@@ -1,0 +1,107 @@
+/* General body styling */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: radial-gradient(circle, #f4f4f9, #ff6f61);
+  padding: 20px;
+  color: #333;
+  margin: 0;
+}
+
+/* Header styling */
+h1 {
+  text-align: center;
+  color: #FF4800;
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+/* Profile info styling */
+#profileInfo {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Liked recipes container */
+#likedRecipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual liked recipe card */
+.liked-meal {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 220px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.liked-meal:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.liked-meal img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.liked-meal h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+/* Buttons styling */
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Logout button */
+.logout-button {
+  background-color: #FF6B6B;
+  color: white;
+}
+
+.logout-button:hover {
+  background-color: #e05c5c;
+}
+
+/* Back button */
+.back-button {
+  background-color: #007BFF;
+  color: white;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+/* Empty liked recipes message */
+#likedRecipes p {
+  font-size: 18px;
+  color: #777;
+  text-align: center;
+  margin-top: 20px;
+}
